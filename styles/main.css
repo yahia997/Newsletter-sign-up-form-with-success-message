@@ -1,0 +1,218 @@
+:root {
+    /* Primary */
+    --Tomato: hsl(4, 100%, 67%);
+    
+    /* Neutral */
+    --Dark-Slate-Grey: hsl(234, 29%, 20%);
+    --Charcoal-Grey: hsl(235, 18%, 26%);
+    --Grey: hsl(231, 7%, 60%);
+    --White: hsl(0, 0%, 100%);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    color: var(--Dark-Slate-Grey);
+}
+body {
+    background-color: var(--Charcoal-Grey);
+    overflow-x: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+main {
+    background-color: var(--White);
+    border-radius: 25px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: auto 330px;
+    width: fit-content;
+    height: 650px;
+    column-gap: 20px;
+    box-shadow: 1px 4px 20px 0px rgba(0, 0, 0, 0.644);
+    overflow: hidden;
+    box-sizing: content-box;
+}
+main div:first-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 20px;
+}
+section {
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+h1 {
+    font-size: 50px;
+}
+section p {
+    margin: 15px 0;
+}
+ul {
+    list-style: none;
+    margin: 20px 0 20px 30px;
+}
+ul li {
+    margin: 13px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+ul li::before {
+    content: url("../assets/images/icon-list.svg");
+    position: absolute;
+    left: -30px;
+    width: 21px;
+    height: 21px;
+}
+form {
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 30%;
+}
+main div:first-child form div {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+}
+label {
+    width: 50%;
+    margin-top: 15px;
+    font-weight: bold;
+}
+form span {
+    width: 50%;
+    color: var(--Tomato);
+    font-weight: bold;
+    text-align: end;
+    margin-top: 15px;
+}
+form input, .btn {
+    border-radius: 10px;
+    margin: 15px 0;
+    outline: none;
+    padding: 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
+input[type=text] {
+    border: 1.6px solid var(--Charcoal-Grey);
+}
+.btn {
+    border: none;
+    color: var(--White);
+    background-color: var(--Charcoal-Grey);
+}
+.btn:hover {
+    background-image: linear-gradient(to right, rgb(255 83 123), var(--Tomato));
+    box-shadow: 0px 5px 25px 0px var(--Tomato);
+}
+.img {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: content-box;
+    background-image: url("../assets/images/illustration-sign-up-desktop.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Success message */
+.success {
+    background-color: var(--White);
+    border-radius: 25px;
+    position: absolute;
+    visibility: hidden;
+    box-shadow: 1px 4px 20px 0px rgba(0, 0, 0, 0.644);
+    padding: 30px;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.success::before {
+    content: url("../assets/images/icon-success.svg");
+}
+.show {
+    visibility: visible;
+}
+.hide {
+    visibility: hidden;
+}
+/* error input style */
+.err-input {
+    border-color: 1.6px solid var(--Tomato) !important;
+    background-color: rgb(255 232 230);
+    color: var(--Tomato);
+}
+.err-input::placeholder {
+    color: var(--Tomato);
+}
+
+
+/* Mobile Design 738px */
+@media (max-width: 738px) {
+    main {
+        grid-template-columns: 100%;
+        grid-template-rows: 200px auto;
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+        border-radius: 0%;
+        padding: 0;
+    }
+    main div:first-child {
+        padding: 10px 20px;
+    }
+    .img {
+        order: -1;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        background-image: url("../assets/images/illustration-sign-up-mobile.svg");
+    }
+    h1 {
+        font-size: 35px;
+    }
+    ul {
+        margin: 8px 0 8px 30px;
+    }
+    .success {
+        width: 100%;
+        height: 100%;
+        border-radius: 0px;
+        display: grid;
+        grid-template-rows: 1fr auto  auto 1fr auto;
+        row-gap: 15px;
+        align-items: flex-end;
+    }
+    .success button {
+        height: fit-content;
+    }
+    #err, label {
+        font-size: 13px;
+    }
+}
+
+/* attribution */
+.attribution {
+    position: absolute;
+    bottom: 0;
+    color: var(--White);
+    width: 100%;
+    text-align: center;
+    background-color: black;
+}
+.attribution a {
+   color: #9E9E9E;
+}
